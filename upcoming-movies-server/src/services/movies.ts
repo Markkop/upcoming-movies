@@ -1,11 +1,26 @@
-import axios from 'axios'
-import { TMBDMovie, TMBDMoviesRequest } from '../types'
+import apiClient from './apiClient'
+import { Movie, TMBDMovie, TMBDMoviesRequest } from '../types'
+import GenresService from './genres'
 
-async function getUpcoming(): Promise<TMBDMovie[]> {
-  const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.TMDB_APIKEY}`
-  const response = await axios.get(url)
+function mapGenreIdToName(genreId: number): string {
+  return GenresService.getGenreById(genreId).name
+}
+
+function mapMovie(movie: TMBDMovie): Movie {
+  return {
+    id: movie.id,
+    originalTitle: movie.original_title,
+    releaseDate: movie.release_date,
+    posterPath: movie.poster_path,
+    genres: movie.genre_ids.map(mapGenreIdToName)
+  }
+}
+
+async function getUpcoming(): Promise<Movie[]> {
+  const response = await apiClient.tmdb.get('/movie/upcoming')
   const data = response.data as TMBDMoviesRequest
-  return data.results
+  const movies = data.results
+  return movies.map(mapMovie)
 }
 
 export default {

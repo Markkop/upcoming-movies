@@ -15,6 +15,14 @@ export type TMBDMovie = {
   vote_average: number
 }
 
+export type Movie = {
+  originalTitle: string
+  releaseDate: string
+  genres: string[]
+  posterPath: string
+  id: number
+}
+
 export type TMBDMoviesRequest = {
   page: number
   results: TMBDMovie[]
@@ -24,4 +32,9 @@ export type TMBDMoviesRequest = {
   }
   total_pages: number
   total_results: number
+}
+
+export type TMBDGenre = {
+  id: number,
+  name: string
 }

@@ -1,11 +1,11 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import express from 'express'
 import path from 'path'
 import logger from 'morgan'
 import cors from 'cors'
 import movies from './routes/movies'
 import middlewares from './middlewares'
-import dotenv from 'dotenv'
-dotenv.config()
 
 const PORT = process.env.PORT || 8080
 
