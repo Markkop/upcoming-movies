@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 async function getMovies() {
-  const response = await fetch('http://localhost:8080/movies/list')
+  const response = await fetch('/movies/list')
   const json = await response.json()
   return json.data.list
 }

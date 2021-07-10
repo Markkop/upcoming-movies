@@ -2,7 +2,7 @@
   "name": "upcoming-movies-server",
   "version": "0.1.0",
   "scripts": {
-    "dev": "tsc && node dist/index.js"
+    "dev": "tsc && nodemon dist/index.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -11,5 +11,8 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "upcoming-movies-client": "0.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }

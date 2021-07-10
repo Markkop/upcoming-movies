@@ -10,11 +10,12 @@
     "upcoming-movies-server"
   ],
   "scripts": {
-    "dev:client": "cd upcoming-movies-client && yarn dev",
-    "dev:server": "cd upcoming-movies-server && yarn dev",
-    "dev": "concurrently \"yarn dev:server\" \"yarn dev:client\""
+    "dev:client": "yarn workspace upcoming-movies-client dev",
+    "dev:server": "yarn workspace upcoming-movies-server dev",
+    "dev": "concurrently \"yarn dev:server\" \"wait-on http://localhost:8080 && yarn dev:client\"",
   },
   "devDependencies": {
-    "concurrently": "^6.2.0"
+    "concurrently": "^6.2.0",
+    "wait-on": "^6.0.0"
   }
 }
