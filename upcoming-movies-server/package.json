@@ -1,8 +1,15 @@
 {
   "name": "upcoming-movies-server",
   "version": "0.1.0",
+  "scripts": {
+    "dev": "tsc && dist/index.js"
+  },
   "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
     "cross-env": "5.0.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
     "upcoming-movies-client": "0.1.0"
   }
 }
