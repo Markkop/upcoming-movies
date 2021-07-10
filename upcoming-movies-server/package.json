@@ -2,7 +2,7 @@
   "name": "upcoming-movies-server",
   "version": "0.1.0",
   "scripts": {
-    "dev": "tsc && dist/index.js"
+    "dev": "tsc && node dist/index.js"
   },
   "dependencies": {
     "axios": "^0.21.1",

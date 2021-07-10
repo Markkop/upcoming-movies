@@ -5,8 +5,16 @@
   "author": "Marcelo 'Mark' Kopmann",
   "license": "MIT",
   "private": true,
-  "workspaces": ["upcoming-movies-client", "upcoming-movies-server"],
+  "workspaces": [
+    "upcoming-movies-client",
+    "upcoming-movies-server"
+  ],
   "scripts": {
-    "dev:client": "cd upcoming-movies-client && react-scripts start"
+    "dev:client": "cd upcoming-movies-client && yarn dev",
+    "dev:server": "cd upcoming-movies-server && yarn dev",
+    "dev": "concurrently \"yarn dev:server\" \"yarn dev:client\""
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0"
   }
 }
