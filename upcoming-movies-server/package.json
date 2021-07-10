@@ -1,0 +1,8 @@
+{
+  "name": "upcoming-movies-server",
+  "version": "0.1.0",
+  "dependencies": {
+    "cross-env": "5.0.5",
+    "upcoming-movies-client": "0.1.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "upcoming-movies",
+  "version": "0.1.0",
+  "description": "A fullstack application that retrieves and lists upcoming movies",
+  "author": "Marcelo 'Mark' Kopmann",
+  "license": "MIT",
+  "private": true,
+  "workspaces": ["upcoming-movies-client", "upcoming-movies-server"],
+  "scripts": {
+    "dev:client": "cd upcoming-movies-client && react-scripts start"
+  }
+}
