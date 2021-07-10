@@ -1,6 +1,7 @@
+import { NextFunction, Request, Response } from 'express'
 import moviesService from '../services/movies'
 
-async function list (_, response, next) {
+async function list (request: Request, response: Response, next: NextFunction) {
   try {
     const movies = await moviesService.getUpcoming()
     response.json({

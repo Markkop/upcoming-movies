@@ -18,11 +18,11 @@ try {
 
   const clientDistPath = path.join(__dirname, '..', '..', 'upcoming-movies-client', 'build')
   app.use(express.static(path.join(clientDistPath)))
-  app.get('/', function (_, response) {
+  app.get('/', function (request, response) {
     response.sendFile(path.join(clientDistPath, 'index.html'))
   })
 
-  app.get('/favicon.svg', function (_, response) {
+  app.get('/favicon.svg', function (request, response) {
     response.sendFile(path.join(clientDistPath, 'favicon.svg'))
   })
 
