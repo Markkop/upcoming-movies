@@ -1,6 +1,7 @@
-import { ApiMovie, Movie } from "../types"
+import { Movie } from "../types"
+import { TMBDMovie } from '../../../upcoming-movies-server/src/types'
 
-function mapMovies(movie: ApiMovie): Movie {
+function mapMovies(movie: TMBDMovie): Movie {
   return {
     originalTitle: movie.original_title
   }

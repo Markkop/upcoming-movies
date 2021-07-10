@@ -1,10 +1,10 @@
 import axios from 'axios'
-import { Movie, UpcomingMoviesRequest } from '../types'
+import { TMBDMovie, TMBDMoviesRequest } from '../types'
 
-async function getUpcoming(): Promise<Movie[]> {
+async function getUpcoming(): Promise<TMBDMovie[]> {
   const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.TMDB_APIKEY}`
   const response = await axios.get(url)
-  const data = response.data as UpcomingMoviesRequest
+  const data = response.data as TMBDMoviesRequest
   return data.results
 }
 

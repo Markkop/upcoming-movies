@@ -1,4 +1,4 @@
-export type Movie = {
+export type TMBDMovie = {
   poster_path: string|null
   adult: boolean
   overview: string
@@ -15,9 +15,9 @@ export type Movie = {
   vote_average: number
 }
 
-export type UpcomingMoviesRequest = {
+export type TMBDMoviesRequest = {
   page: number
-  results: Movie[]
+  results: TMBDMovie[]
   dates: {
     maximum: string
     minimum: string
