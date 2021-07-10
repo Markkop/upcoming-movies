@@ -1,4 +1,4 @@
-export type Movies = {
+export type Movie = {
   poster_path: string|null
   adult: boolean
   overview: string
@@ -17,7 +17,7 @@ export type Movies = {
 
 export type UpcomingMoviesRequest = {
   page: number
-  results: Movies
+  results: Movie[]
   dates: {
     maximum: string
     minimum: string
