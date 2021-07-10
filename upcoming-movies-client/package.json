@@ -1,8 +1,10 @@
 {
   "name": "upcoming-movies-client",
   "version": "0.1.0",
+  "license": "MIT",
   "scripts": {
-    "dev": "react-scripts start"
+    "dev": "react-scripts start",
+    "build": "react-scripts build"
   },
   "proxy": "http://localhost:8080",
   "dependencies": {

@@ -1,8 +1,11 @@
 {
   "name": "upcoming-movies-server",
   "version": "0.1.0",
+  "license": "MIT",
   "scripts": {
-    "dev": "tsc && nodemon dist/index.js"
+    "dev": "tsc && nodemon dist/index.js",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
