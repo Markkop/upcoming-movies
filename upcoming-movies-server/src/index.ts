@@ -16,6 +16,16 @@ try {
   app.use(logger('dev'))
   app.use(express.json())
 
+  const clientDistPath = path.join(__dirname, '..', '..', 'upcoming-movies-client', 'build')
+  app.use(express.static(path.join(clientDistPath)))
+  app.get('/', function (_, response) {
+    response.sendFile(path.join(clientDistPath, 'index.html'))
+  })
+
+  app.get('/favicon.svg', function (_, response) {
+    response.sendFile(path.join(clientDistPath, 'favicon.svg'))
+  })
+
   app.use('/movies', movies)
 
   app.use(middlewares.notFound)
