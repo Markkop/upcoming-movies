@@ -3,27 +3,25 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { Movie } from "../../types";
-import { CardHeader, CardMedia } from '@material-ui/core';
+import { CardMedia, Modal } from '@material-ui/core';
+import { formatDate } from '../../utils/formatter'
+import { useContext, useState } from 'react';
+import MovieDetails from './MovieDetails'
+import MovieDetailsModal from '../organisms/MovieDetailsModal';
+import TodosProvider, { MovieModalContext } from "../providers/MovieModalProvider";
+
 
 type MovieCardProps = {
   movie: Movie
 };
-
-function formatDate(dateString: string) {
-  const date = new Date(dateString) 
-  return date.toLocaleDateString('en-US', { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
-  })
-}
 
 const useStyles = makeStyles({
   root: {
     flexDirection: 'column',
     display: 'flex',
     margin: '15px 15px',
-    flexGrow: 1
+    flexGrow: 1,
+    cursor: 'pointer'
   },
   title: {
     fontSize: 14,
@@ -37,11 +35,33 @@ const useStyles = makeStyles({
   },
 });
 
+
+function rand() {
+  return Math.round(Math.random() * 20) - 10;
+}
+
+function getModalStyle() {
+  const top = 50 + rand();
+  const left = 50 + rand();
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
+
 export default function MovieCard({ movie }: MovieCardProps) {
+  const { setModalMovie, setIsModalOpen } = useContext(MovieModalContext);
   const classes = useStyles();
 
+  function handleCardClick() {
+    setModalMovie(movie)
+    setIsModalOpen(true)
+  }
+
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} component="a" onClick={handleCardClick}>
       <CardMedia
         className={classes.media}
         image={`http://image.tmdb.org/t/p/w500${movie.posterPath}`}
