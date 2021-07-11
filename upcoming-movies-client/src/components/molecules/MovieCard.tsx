@@ -3,17 +3,27 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { Movie } from "../../types";
-import { CardMedia } from '@material-ui/core';
+import { CardHeader, CardMedia } from '@material-ui/core';
 
 type MovieCardProps = {
   movie: Movie
 };
+
+function formatDate(dateString: string) {
+  const date = new Date(dateString) 
+  return date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  })
+}
 
 const useStyles = makeStyles({
   root: {
     flexDirection: 'column',
     display: 'flex',
     margin: '15px 15px',
+    flexGrow: 1
   },
   title: {
     fontSize: 14,
@@ -32,16 +42,19 @@ export default function MovieCard({ movie }: MovieCardProps) {
 
   return (
     <Card className={classes.root}>
-        <CardMedia
-          className={classes.media}
-          image={`http://image.tmdb.org/t/p/w500${movie.posterPath}`}
-          title={movie.originalTitle}
-        />
+      <CardMedia
+        className={classes.media}
+        image={`http://image.tmdb.org/t/p/w500${movie.posterPath}`}
+        title={movie.originalTitle}
+      />
       <CardContent>
-        <Typography className={classes.pos} color="textSecondary">
+        <Typography gutterBottom variant="h6" component="h1">
           {movie.originalTitle}
         </Typography>
-        <Typography variant="body2" component="p">
+        <Typography variant="body2" color="textSecondary" component="p">
+          {formatDate(movie.releaseDate)}
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
           {movie.genres.join(', ')}
         </Typography>
       </CardContent>
