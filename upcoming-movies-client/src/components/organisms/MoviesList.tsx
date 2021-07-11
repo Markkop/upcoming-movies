@@ -41,7 +41,7 @@ export default function MoviesList({ moviesResults, getAndSetMovies }: MoviesLis
       next={onReachBottom}
       hasMore={hasMorePages}
       loader={<Loading/>}
-      endMessage={<SeenAll/>}
+      endMessage={<SeenAll resultsQuantity={movies.length}/>}
     >
       <Grid container className={classes.grid} id="grid">
       {movies.map(movie => 

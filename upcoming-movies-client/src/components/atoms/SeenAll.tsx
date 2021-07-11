@@ -8,12 +8,20 @@ const useStyles = makeStyles({
   }
 });
 
-export default function SeenAll() {
+type SeenAllProps = {
+  resultsQuantity: number
+}
+
+export default function SeenAll({ resultsQuantity }: SeenAllProps) {
   const classes = useStyles();
+  const hasSingleResult = resultsQuantity === 1
+  const singleResultText = "You've seen the single result!"
+  const multipleResultsText = `You've seen all the ${resultsQuantity} results!`
+  const noResultsText = 'No results were found :('
 
   return <Box className={classes.root}>
     <Typography>
-      You've seen all the results!
+      {resultsQuantity ? (hasSingleResult ? singleResultText :  multipleResultsText) : noResultsText}
     </Typography>
   </Box>
   
