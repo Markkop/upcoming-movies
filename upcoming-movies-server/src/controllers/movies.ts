@@ -20,6 +20,27 @@ async function upcoming (request: Request, response: Response, next: NextFunctio
   }
 }
 
+async function search (request: Request, response: Response, next: NextFunction) {
+  try {
+    const requestPage = request.query.page || 1
+    const query = request.query.query
+    const { list, totalPages, page } = await moviesService.findMovies(String(query), Number(requestPage))
+    response.json({
+      status: 'success',
+      message: 'Movies found',
+      data: { 
+        list,
+        totalPages,
+        page
+      }
+    })
+  } catch (error) {
+    console.log(error)
+    next(error)
+  }
+}
+
 export default {
-  upcoming
+  upcoming,
+  search
 }

@@ -32,6 +32,20 @@ async function getUpcoming(requestPage = 1): Promise<MyApiMoviesResponse> {
   return { list, totalPages, page }
 }
 
+async function findMovies(query: string, requestPage = 1): Promise<MyApiMoviesResponse> {
+  const options = {
+    params: {
+      query,
+      page: requestPage
+    }
+  }
+  const response = await apiClient.tmdb.get('/search/movie', options)
+  const { results, total_pages: totalPages, page } = response.data as TMBDMoviesResponse
+  const list = results.map(mapMovie)
+  return { list, totalPages, page }
+}
+
 export default {
-  getUpcoming
+  getUpcoming,
+  findMovies
 }

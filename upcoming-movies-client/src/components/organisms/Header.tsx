@@ -4,6 +4,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react'
+import useDebounce from '../../hooks/useDebounce';
+import { slugify } from '../../utils/slugify';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -56,8 +60,23 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function Header() {
+type HeaderProps = {
+  setQuery: Dispatch<SetStateAction<string>>
+}
+
+export default function Header({ setQuery }: HeaderProps) {
   const classes = useStyles();
+  const [value, setValue] = useState<string>('')
+  const debouncedValue = useDebounce<string>(value, 500) 
+  
+  useEffect(() => {
+    setQuery(slugify(debouncedValue))
+
+  }, [debouncedValue])
+
+  function onInputChange(event: ChangeEvent<HTMLInputElement>) {
+    setValue(event.target.value)
+  }
 
   return (
     <div className={classes.grow}>
@@ -77,6 +96,7 @@ export default function Header() {
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
+              onChange={onInputChange}
             />
           </div>
           <div className={classes.grow} />

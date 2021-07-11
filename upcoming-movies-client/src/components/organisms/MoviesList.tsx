@@ -28,6 +28,11 @@ export default function MoviesList({ moviesResults, getAndSetMovies }: MoviesLis
   const classes = useStyles();
 
   useEffect(() => {
+    if (moviesResults.page === 1) {
+      setMovies(moviesResults.list)
+      return 
+    }
+
     setMovies(prevMovies => [...prevMovies, ...moviesResults.list])
   }, [moviesResults])
 

@@ -3,6 +3,7 @@ import Header from "./components/organisms/Header";
 import { makeStyles } from "@material-ui/core";
 import MovieModalProvider from "./components/providers/MovieModalProvider";
 import MovieDetailsModal from "./components/organisms/MovieDetailsModal";
+import { useState } from "react";
 
 const useStyles = makeStyles({
   background: {
@@ -11,11 +12,13 @@ const useStyles = makeStyles({
 });
 
 export default function App() {
+  const [query, setQuery] = useState('')
+
   const classes = useStyles();
   return <div id="app" className={classes.background} >
     <MovieModalProvider>
-      <Header />
-      <Home />
+      <Header setQuery={setQuery} />
+      <Home query={query} />
       <MovieDetailsModal/>
     </MovieModalProvider>
   </div>
