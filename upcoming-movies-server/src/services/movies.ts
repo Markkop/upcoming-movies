@@ -7,11 +7,14 @@ function mapGenreIdToName(genreId: number): string {
 }
 
 function mapMovie(movie: TMBDMovie): Movie {
+  const fallbackImage = 'http://bgkllen.org.au/wp-content/uploads/2019/04/noimage-500x750.jpg'
+  const posterImage = `http://image.tmdb.org/t/p/w500${movie.poster_path}`
+  const posterPath = movie.poster_path ? posterImage : fallbackImage
   return {
     id: movie.id,
     title: movie.title,
     releaseDate: movie.release_date,
-    posterPath: `http://image.tmdb.org/t/p/w500${movie.poster_path}`,
+    posterPath,
     genres: movie.genre_ids.map(mapGenreIdToName),
     overview: movie.overview
   }
