@@ -64,7 +64,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
     <Card className={classes.root} component="a" onClick={handleCardClick}>
       <CardMedia
         className={classes.media}
-        image={`http://image.tmdb.org/t/p/w500${movie.posterPath}`}
+        image={movie.posterPath}
         title={movie.originalTitle}
       />
       <CardContent>

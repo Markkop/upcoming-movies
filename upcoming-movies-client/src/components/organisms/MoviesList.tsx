@@ -20,7 +20,7 @@ export default function MoviesList({ movies }: MoviesListProps) {
   const classes = useStyles();
   return <Grid container className={classes.grid}>
     {movies.map(movie => 
-      <Grid item xs={12} sm={6} md={3} className={classes.gridItem}>
+      <Grid item xs={12} sm={6} md={3} className={classes.gridItem} key={movie.id}>
         <MovieCard movie={movie} />
       </Grid>
     )}

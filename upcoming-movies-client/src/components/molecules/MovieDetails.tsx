@@ -1,26 +1,79 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Movie } from "../../types";
-import { Paper } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+import { formatDate } from '../../utils/formatter';
+
 
 type MovieDetailsProps = {
-  movie?: Movie
+  movie: Movie
 };
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    flexDirection: 'column',
     display: 'flex',
-    margin: '15px 15px',
-    flexGrow: 1
+    flexDirection: 'column',
+    margin: '15px 25px',
+    [theme.breakpoints.up('sm')]: {
+      justifyContent: 'center',
+      width: '50%'
+    },
+  },
+  mainContainer: {
+    borderRadius: '3px',
+    height: '90vh',
+    overflowY: 'scroll',
+    flexDirection: 'row-reverse',
+    [theme.breakpoints.up('sm')]: {
+      flexDirection: 'row',
+      flexWrap: 'nowrap',
+      overflowY: 'hidden',
+    },
+  },
+  imageContainer: {
+    height: 'inherit',
+    [theme.breakpoints.down('sm')]: {
+      height: 'auto',
+    },
+  },
+  img: {
+    height: '100%',
+    [theme.breakpoints.down('sm')]: {
+      height: 'auto',
+      width: '100%'
+    },
+  },
+  textsContainer: {
+    margin:'auto 5px'
   }
-});
+}));
 
 export default function MovieDetails({ movie }: MovieDetailsProps) {
   const classes = useStyles();
 
   return (
     <Paper className={classes.root}>
-      {movie?.originalTitle}
+      <Grid container className={classes.mainContainer}>
+        <Grid item className={classes.imageContainer}>
+          <img className={classes.img} alt={movie.originalTitle} src={movie.posterPath} />
+        </Grid>
+        <Grid item container className={classes.textsContainer}>
+          <Grid item>
+            <Typography gutterBottom variant="h6" id="movie-modal-title">
+              {movie.originalTitle}
+            </Typography>
+            <Typography variant="body2" color="textSecondary">
+              {movie.genres.join(', ')}
+            </Typography>
+            <Typography variant="body2" gutterBottom >
+              {movie.overview}
+            </Typography>
+            <Typography variant="subtitle2">
+              {`Release on ${formatDate(movie.releaseDate)}`}
+          </Typography>
+          </Grid>
+        </Grid>
+      </Grid>
     </Paper>
   );
 }
