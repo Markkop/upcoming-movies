@@ -1,14 +1,24 @@
 import MoviesList from "../organisms/MoviesList"
 import { useEffect, useState } from "react";
-import { getMovies } from "../../services/movies";
-import { Movie } from "../../types";
+import { getUpcomingMovies } from "../../services/movies";
+import { Movie, MoviesResults } from "../../types";
+
+const defaultMoviesResults = {
+  list: [],
+  page: 1,
+  totalPages: 1
+}
 
 export default function Home() {
-  const [ movies, setMovies ] = useState<Movie[]>([])
+  const [ moviesResults, setMoviesResults ] = useState<MoviesResults>(defaultMoviesResults)
 
-  async function getAndSetMovies() {
-    const movies = await getMovies()
-    setMovies(movies)
+  async function getAndSetMovies(page = 1) {
+    const { list, totalPages, page: responsePage } = await getUpcomingMovies(page) 
+    setMoviesResults({
+      list,
+      totalPages,
+      page: responsePage
+    })
   }
   
   useEffect(() => {
@@ -16,6 +26,9 @@ export default function Home() {
   }, [])
 
   return (
-    <MoviesList movies={movies} />
+    <MoviesList 
+      moviesResults={moviesResults} 
+      getAndSetMovies={getAndSetMovies}
+    />
   )
 } 

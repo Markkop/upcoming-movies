@@ -1,13 +1,18 @@
 import { NextFunction, Request, Response } from 'express'
 import moviesService from '../services/movies'
 
-async function list (request: Request, response: Response, next: NextFunction) {
+async function upcoming (request: Request, response: Response, next: NextFunction) {
   try {
-    const movies = await moviesService.getUpcoming()
+    const requestPage = request.query.page || 1
+    const { list, totalPages, page } = await moviesService.getUpcoming(Number(requestPage))
     response.json({
       status: 'success',
       message: 'Upcoming movies list has been acquired.',
-      data: { list: movies }
+      data: { 
+        list,
+        totalPages,
+        page
+      }
     })
   } catch (error) {
     console.log(error)
@@ -16,5 +21,5 @@ async function list (request: Request, response: Response, next: NextFunction) {
 }
 
 export default {
-  list
+  upcoming
 }

@@ -55,12 +55,12 @@ export default function MovieDetails({ movie }: MovieDetailsProps) {
     <Paper className={classes.root}>
       <Grid container className={classes.mainContainer}>
         <Grid item className={classes.imageContainer}>
-          <img className={classes.img} alt={movie.originalTitle} src={movie.posterPath} />
+          <img className={classes.img} alt={movie.title} src={movie.posterPath} />
         </Grid>
         <Grid item container className={classes.textsContainer}>
           <Grid item>
             <Typography gutterBottom variant="h6" id="movie-modal-title">
-              {movie.originalTitle}
+              {movie.title}
             </Typography>
             <Typography variant="body2" color="textSecondary">
               {movie.genres.join(', ')}

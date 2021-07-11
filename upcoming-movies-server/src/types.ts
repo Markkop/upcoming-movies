@@ -5,7 +5,6 @@ export type TMBDMovie = {
   release_date: string
   genre_ids: number[]
   id: number
-  original_title: string
   original_language: string
   title: string
   backdrop_path: string|null
@@ -16,7 +15,7 @@ export type TMBDMovie = {
 }
 
 export type Movie = {
-  originalTitle: string
+  title: string
   releaseDate: string
   genres: string[]
   posterPath: string
@@ -24,7 +23,13 @@ export type Movie = {
   overview: string
 }
 
-export type TMBDMoviesRequest = {
+export type MyApiMoviesResponse = {
+  list: Movie[],
+  totalPages: number,
+  page: number
+}
+
+export type TMBDMoviesResponse = {
   page: number
   results: TMBDMovie[]
   dates: {

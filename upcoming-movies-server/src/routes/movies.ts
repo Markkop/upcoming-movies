@@ -2,6 +2,6 @@ import express from 'express'
 import moviesController from '../controllers/movies'
 
 const router = express.Router()
-router.get('/list', moviesController.list)
+router.get('/upcoming', moviesController.upcoming)
 
 export default router

@@ -65,11 +65,11 @@ export default function MovieCard({ movie }: MovieCardProps) {
       <CardMedia
         className={classes.media}
         image={movie.posterPath}
-        title={movie.originalTitle}
+        title={movie.title}
       />
       <CardContent>
         <Typography gutterBottom variant="h6" component="h1">
-          {movie.originalTitle}
+          {movie.title}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           {formatDate(movie.releaseDate)}
