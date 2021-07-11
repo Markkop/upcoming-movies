@@ -20,7 +20,8 @@ export type Movie = {
   releaseDate: string
   genres: string[]
   posterPath: string
-  id: number
+  id: number,
+  overview: string
 }
 
 export type TMBDMoviesRequest = {

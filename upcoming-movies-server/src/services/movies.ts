@@ -11,8 +11,9 @@ function mapMovie(movie: TMBDMovie): Movie {
     id: movie.id,
     originalTitle: movie.original_title,
     releaseDate: movie.release_date,
-    posterPath: movie.poster_path,
-    genres: movie.genre_ids.map(mapGenreIdToName)
+    posterPath: `http://image.tmdb.org/t/p/w500${movie.poster_path}`,
+    genres: movie.genre_ids.map(mapGenreIdToName),
+    overview: movie.overview
   }
 }
 
