@@ -16,7 +16,7 @@
     "build:client": "yarn workspace upcoming-movies-client build",
     "build:server": "yarn workspace upcoming-movies-server build",
     "build": "yarn build:client && yarn build:server",
-    "start": "yarn build && yarn workspace upcoming-movies-server start"
+    "start": "yarn workspace upcoming-movies-server start"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",
