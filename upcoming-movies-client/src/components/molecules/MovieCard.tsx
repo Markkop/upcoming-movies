@@ -1,15 +1,9 @@
+import { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import { Movie } from "../../types";
-import { CardMedia, Modal } from '@material-ui/core';
+import { CardMedia, Card, CardContent, Typography } from '@material-ui/core';
+import { MovieModalContext } from "../providers/MovieModalProvider";
 import { formatDate } from '../../utils/formatter'
-import { useContext, useState } from 'react';
-import MovieDetails from './MovieDetails'
-import MovieDetailsModal from '../organisms/MovieDetailsModal';
-import TodosProvider, { MovieModalContext } from "../providers/MovieModalProvider";
-
+import { Movie } from "../../types";
 
 type MovieCardProps = {
   movie: Movie

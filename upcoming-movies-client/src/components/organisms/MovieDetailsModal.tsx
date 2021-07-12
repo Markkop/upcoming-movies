@@ -1,9 +1,8 @@
+import { useContext } from 'react';
 import { MovieModalContext } from "../providers/MovieModalProvider";
 import { makeStyles } from '@material-ui/core/styles';
-import { Fade, Modal } from '@material-ui/core';
-import Backdrop from '@material-ui/core/Backdrop';
+import { Fade, Modal, Backdrop } from '@material-ui/core';
 import MovieDetails from '../molecules/MovieDetails'
-import { useContext } from 'react';
 
 const useStyles = makeStyles({
     modal: {

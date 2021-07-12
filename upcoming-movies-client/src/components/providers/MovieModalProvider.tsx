@@ -1,4 +1,4 @@
-import { createContext, useState, FC, ReactNode } from "react";
+import { createContext, useState, ReactNode } from "react";
 import { MovieModalContextState, Movie } from "../../types";
 
 const contextDefaultValues: MovieModalContextState = {
