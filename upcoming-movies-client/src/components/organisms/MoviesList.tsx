@@ -9,7 +9,8 @@ import MovieCard from '../molecules/MovieCard'
 
 type MoviesListProps = {
   moviesResults: MoviesResults,
-  getAndSetMovies: (page: number) => Promise<void>
+  getAndSetMovies: (page: number) => Promise<void>,
+  error?: Error
 }
 
 const useStyles = makeStyles({
@@ -23,7 +24,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function MoviesList({ moviesResults, getAndSetMovies }: MoviesListProps) {
+export default function MoviesList({ moviesResults, getAndSetMovies, error }: MoviesListProps) {
   const [movies, setMovies] = useState<Movie[]>([])
   const classes = useStyles();
 
@@ -46,7 +47,7 @@ export default function MoviesList({ moviesResults, getAndSetMovies }: MoviesLis
       next={onReachBottom}
       hasMore={hasMorePages}
       loader={<Loading/>}
-      endMessage={<SeenAll resultsQuantity={movies.length}/>}
+      endMessage={<SeenAll resultsQuantity={movies.length} error={error}/>}
     >
       <Grid container className={classes.grid} id="grid">
       {movies.map(movie => 
