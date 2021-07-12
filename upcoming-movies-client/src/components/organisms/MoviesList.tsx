@@ -1,4 +1,4 @@
-import { Grid, Grow, makeStyles } from "@material-ui/core";
+import { Grid, makeStyles } from "@material-ui/core";
 import { useState } from "react";
 import { useEffect } from "react";
 import InfiniteScroll from 'react-infinite-scroll-component'

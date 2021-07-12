@@ -1,13 +1,12 @@
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { alpha, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
-import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react'
+import SearchInput from '../atoms/SearchInput';
 import useDebounce from '../../hooks/useDebounce';
 import { slugify } from '../../utils/slugify';
-
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -43,20 +42,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-    },
-    inputRoot: {
-      color: 'inherit',
-    },
-    inputInput: {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-      transition: theme.transitions.create('width'),
-      width: '100%',
-      [theme.breakpoints.up('md')]: {
-        width: '20ch',
-      },
-    },
+    }
   }),
 );
 
@@ -71,7 +57,6 @@ export default function Header({ setQuery }: HeaderProps) {
   
   useEffect(() => {
     setQuery(slugify(debouncedValue))
-
   }, [debouncedValue])
 
   function onInputChange(event: ChangeEvent<HTMLInputElement>) {
@@ -89,15 +74,7 @@ export default function Header({ setQuery }: HeaderProps) {
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-              onChange={onInputChange}
-            />
+            <SearchInput onChange={onInputChange}/>
           </div>
           <div className={classes.grow} />
         </Toolbar>
