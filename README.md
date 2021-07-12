@@ -4,13 +4,9 @@
 [![https://img.shields.io/badge/made%20with-express-blue](https://img.shields.io/badge/made%20with-express-blue)](https://expressjs.com/)
 [![https://img.shields.io/badge/made%20with-typescript-blue](https://img.shields.io/badge/made%20with-typescript-blue)](https://www.typescriptlang.org/)
 
-This project is a fullstack coding challenge which consumes [TheMovieDatabase API](https://developers.themoviedb.org/) to display upcoming movies and searched movies. 
+This project is a fullstack coding challenge that I found somewhere which consumes [TheMovieDatabase API](https://developers.themoviedb.org/) to display upcoming movies and searched movies. 
 
 Demo: soon
-
-## Requisites
-
-soon
 
 ## Features
 
@@ -45,7 +41,8 @@ UI and UX are not my strong points, so I've used MaterialUI to help me for a fas
 
 ### Shared package 
 
-There were times where I wanted to use the same types I've declared on both client and server applications and it sound tempting creating a new package just for this. In the end, I've just imported it directly from the other package.
+There were times where I wanted to use the same types I've declared on both client and server applications and it sound tempting creating a new package just for this. In the end, I've just imported it directly from the other package.  
+I would be also great to share ESLint settings.
 
 ## Useful links:
 
@@ -53,9 +50,11 @@ There were times where I wanted to use the same types I've declared on both clie
 * [Creating react-app from scratch](https://andrey-arthur.medium.com/how-to-create-your-react-app-from-scratch-without-create-react-app-or-babel-webpack-setup-a0e429a3527a)
 * [Pitfalls of overusing React Context](https://blog.logrocket.com/pitfalls-of-overusing-react-context/)
 
-## Check my other projects
+## Check out my other projects
 
-* Health Plan Listing: a fullstack application made in VueJS and ExpressJS
-* Residence Heat Map: a ReactJS app with JSONServer + ExpressJS
-* Corvo Astral: a Discord Bot being used in over 200 servers
-* Nest: a microservices project to integrate my personal APIs
+* [Health Plan Listing](https://github.com/Markkop/health-plan-listing): a fullstack application made in VueJS and ExpressJS
+* [Residence Heat Map](https://github.com/Markkop/residence-heatmap): a ReactJS app with JSONServer + ExpressJS
+* [Corvo Astral](https://github.com/Markkop/corvo-astral): a Discord Bot being used in over 200 servers
+* [Nest](https://github.com/Markkop/nest): a microservices project using MolecularJS to integrate my personal APIs
+* [YT-DlAndCut](https://github.com/Markkop/yt-dlandcut): an Electron app that downloads and cut Youtube videos
+* [Quiz](https://github.com/Markkop/meta-quiz-imersao-react): a quiz page made with NextJS and ReactJS
