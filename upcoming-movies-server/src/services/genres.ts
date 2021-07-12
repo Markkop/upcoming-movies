@@ -14,9 +14,13 @@ class GenresService {
   }
 
   private async getGenres(): Promise<TMBDGenre[]> {
-    const response = await apiClient.tmdb.get('/genre/movie/list')
-    const data = response.data.genres as TMBDGenre[]
-    return data
+    try {
+      const response = await apiClient.tmdb.get('/genre/movie/list')
+      const data = response.data.genres as TMBDGenre[]
+      return data
+    } catch (error) {
+      console.trace(error.message)
+    }
   }
 
   private async setGenres(genres: TMBDGenre[]) {

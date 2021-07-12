@@ -23,6 +23,7 @@ soon
 ## How to Develop
 
 - Clone this repository
+- Copy `.env.example` to `.env` and fill its credentials
 - Run `yarn`
 - Run `yarn dev` or `yarn dev:client`/`yarn dev:server`
 - Access http://localhost:3000 for client or hit http://localhost:8080 for server
