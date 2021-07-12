@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { Movie, MoviesResults } from "../../types"
 import Loading from "../atoms/Loading";
-import SeenAll from "../atoms/SeenAll";
+import ResultsText from "../atoms/ResultsText";
 import MovieCard from '../molecules/MovieCard'
 
 type MoviesListProps = {
@@ -47,7 +47,7 @@ export default function MoviesList({ moviesResults, getAndSetMovies, error }: Mo
       next={onReachBottom}
       hasMore={hasMorePages}
       loader={<Loading/>}
-      endMessage={<SeenAll resultsQuantity={movies.length} error={error}/>}
+      endMessage={<ResultsText resultsQuantity={movies.length} error={error}/>}
     >
       <Grid container className={classes.grid} id="grid">
       {movies.map(movie => 
