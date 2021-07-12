@@ -2,8 +2,8 @@ import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'reac
 import { alpha, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import SearchInput from '../atoms/SearchInput';
-import useDebounce from '../../hooks/useDebounce';
+import { SearchInput } from '../atoms';
+import { useDebounce } from '../../hooks';
 import { slugify } from '../../utils/slugify';
 
 const useStyles = makeStyles((theme: Theme) =>

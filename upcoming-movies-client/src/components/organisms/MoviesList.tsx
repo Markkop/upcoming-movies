@@ -1,9 +1,8 @@
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { Grid, makeStyles } from "@material-ui/core";
 import { useState, useEffect } from "react";
-import Loading from "../atoms/Loading";
-import ResultsText from "../atoms/ResultsText";
-import MovieCard from '../molecules/MovieCard'
+import { ResultsText, Loading } from "../atoms";
+import { MovieCard } from '../molecules'
 import { Movie, MoviesResults } from "../../types"
 
 type MoviesListProps = {

@@ -1,4 +1,4 @@
-import MoviesList from "../organisms/MoviesList"
+import { MoviesList } from "../organisms"
 import { useEffect, useState } from "react";
 import { getUpcomingMovies, findMovies } from "../../services/movies";
 import { MoviesResults } from "../../types";

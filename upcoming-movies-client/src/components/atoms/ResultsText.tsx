@@ -13,7 +13,7 @@ type SeenAllProps = {
   error?: Error
 }
 
-export default function SeenAll({ resultsQuantity, error }: SeenAllProps) {
+export default function ResultsText({ resultsQuantity, error }: SeenAllProps) {
   const classes = useStyles();
 
   const hasSingleResult = resultsQuantity === 1

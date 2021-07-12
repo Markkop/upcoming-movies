@@ -16,8 +16,8 @@ export default function App() {
 
   const classes = useStyles();
   return <div id="app" className={classes.background} >
+    <Header setQuery={setQuery} />
     <MovieModalProvider>
-      <Header setQuery={setQuery} />
       <Home query={query} />
       <MovieDetailsModal/>
     </MovieModalProvider>

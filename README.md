@@ -46,8 +46,15 @@ UI and UX are not my strong points, so I've used MaterialUI to help me for a fas
 
 There were times where I wanted to use the same types I've declared on both client and server applications and it sound tempting creating a new package just for this. In the end, I've just imported it directly from the other package.
 
-### Useful links:
+## Useful links:
 
 * [Using Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)
 * [Creating react-app from scratch](https://andrey-arthur.medium.com/how-to-create-your-react-app-from-scratch-without-create-react-app-or-babel-webpack-setup-a0e429a3527a)
 * [Pitfalls of overusing React Context](https://blog.logrocket.com/pitfalls-of-overusing-react-context/)
+
+## Check my other projects
+
+* Health Plan Listing: a fullstack application made in VueJS and ExpressJS
+* Residence Heat Map: a ReactJS app with JSONServer + ExpressJS
+* Corvo Astral: a Discord Bot being used in over 200 servers
+* Nest: a microservices project to integrate my personal APIs
