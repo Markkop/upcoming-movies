@@ -6,7 +6,9 @@
 
 This project is a fullstack coding challenge that I found somewhere which consumes [TheMovieDatabase API](https://developers.themoviedb.org/) to display upcoming movies and searched movies. 
 
-Demo: soon
+Demo: https://upcoming-movies-markkop.herokuapp.com/
+
+![demomovies](https://user-images.githubusercontent.com/16388408/125370185-4471d180-e354-11eb-812f-d9b89fa76c45.gif)
 
 ## Features
 
