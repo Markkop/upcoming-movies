@@ -6,7 +6,7 @@
 
 This project is a fullstack coding challenge that I found somewhere which consumes [TheMovieDatabase API](https://developers.themoviedb.org/) to display upcoming movies and searched movies. 
 
-Demo: https://upcoming-movies-markkop.herokuapp.com/
+Demo: https://upcoming-movies.onrender.com/ (it might take a while to wake up the hosting service)
 
 ![demomovies](https://user-images.githubusercontent.com/16388408/125370185-4471d180-e354-11eb-812f-d9b89fa76c45.gif)
 
@@ -15,7 +15,7 @@ Demo: https://upcoming-movies-markkop.herokuapp.com/
 - MaterialUI for faster prototyping
 - Yarn workspaces for monorepo management
 - Atomic Design for components structure
-- Continuous Deploy with Github Actions to Heroku
+- Continuous Deploy with ~~Github Actions to Heroku~~ Render.com
 - Type safe with Typescript
 
 ## How to Develop
@@ -28,7 +28,8 @@ Demo: https://upcoming-movies-markkop.herokuapp.com/
 
 ## How to Deploy
 
-- The application is deployed directly into Heroku using Github Actions
+- T~~he application is deployed directly into Heroku using Github Actions~~
+- Using Render.com
 
 ## Challenges/Wishlist
 
